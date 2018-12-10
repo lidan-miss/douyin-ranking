@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="hd-block">
-        <div class="btns-play">播放</div>
+        <div class="btns-play" @click="videoPlay">播放</div>
         <div class="release-time">
           发布时间：2018-04-13  09:49:13<br>
           发布时间：2018-04-13  09:49:13
@@ -201,13 +201,14 @@
         color:#ffffff;
         font-size: 14px;
         &::before{
-          background: url(../../common/assets/img/icon-play.png) left center no-repeat;
+          background: url(../../common/assets/img/icon-play.png) no-repeat;
           background-size: 14px 15px;
           width: 14px;
           height: 15px;
           content: "";
           display: inline-block;
-          margin-right: 6px;
+          margin:-1px 6px 0 0;
+          vertical-align:middle;
         }
       }
       .release-time{flex: 1;
@@ -491,6 +492,11 @@ export default {
   },
 
   methods: {
+    videoPlay(id){
+      wx.navigateTo({
+        url: `/pages/video_play/main`
+      })
+    }
   },
 
   created() {},

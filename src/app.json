@@ -7,7 +7,7 @@
     "pages/music/main",
     "pages/video/main",
     "pages/search/main",
-    
+    "pages/video_play/main",
     "pages/music_details/main"
     
   ],

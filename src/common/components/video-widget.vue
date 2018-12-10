@@ -14,6 +14,36 @@
       <div class="item">
         <div class="img"><img src="/static/img/1.png" alt="" mode="widthFix"></div>
         <div class="text">10月8日</div>
+        <div class="tag1">99k</div>
+      </div>
+      <div class="item">
+        <div class="img"><img src="/static/img/1.png" alt="" mode="widthFix"></div>
+        <div class="text">10月8日</div>
+        <div class="tag">99.9</div>
+      </div>
+      <div class="item">
+        <div class="img"><img src="/static/img/1.png" alt="" mode="widthFix"></div>
+        <div class="text">10月8日</div>
+        <div class="tag">99.9</div>
+      </div>
+      <div class="item">
+        <div class="img"><img src="/static/img/1.png" alt="" mode="widthFix"></div>
+        <div class="text">10月8日</div>
+        <div class="tag">99.9</div>
+      </div>
+      <div class="item">
+        <div class="img"><img src="/static/img/1.png" alt="" mode="widthFix"></div>
+        <div class="text">10月8日</div>
+        <div class="tag">99.9</div>
+      </div>
+      <div class="item">
+        <div class="img"><img src="/static/img/1.png" alt="" mode="widthFix"></div>
+        <div class="text">10月8日</div>
+        <div class="tag">99.9</div>
+      </div>
+      <div class="item">
+        <div class="img"><img src="/static/img/1.png" alt="" mode="widthFix"></div>
+        <div class="text">10月8日</div>
         <div class="tag">99.9</div>
       </div>
       <div class="item">
@@ -96,7 +126,7 @@
       display: inline-block;
       margin-bottom: 15px;
       position: relative;
-      flex: 0 0 33.33%;
+      flex:1;
       &:nth-child(3n) {
         .img{
           text-align: right;
@@ -142,6 +172,31 @@
           height: 10px;
           background: url(../../common/assets/img/fire.png) no-repeat;
           background-size: 7px 10px;
+          position: absolute;
+          top: 4px;
+          left: 4px;
+        }
+      }
+      .tag1 {
+        background: #facd13;
+        width: 42px;
+        height: 18px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        font-size: 12px;
+        color: #fff;
+        line-height: 18px;
+        padding-left: 17px;
+        box-sizing: border-box;
+        &:before {
+          content: ' ';
+          width: 12px;
+          height: 10px;
+          background: url(http://resourcecdn.xiguaji.com/images/dsp/like-w.png) no-repeat;
+          background-size: 12px 10px;
           position: absolute;
           top: 4px;
           left: 4px;

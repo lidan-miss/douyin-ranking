@@ -100,10 +100,24 @@
                 <mpvue-echarts :echarts="echarts" :onInit="ecPieInit" canvasId="pie" />
               </div>
             </div>
-            <div class="btns-share">生成图片分享到朋友圈</div>
+            
+            <div class="no-result">
+              <div class="result">
+                <div class="img"><img src="http://resourcecdn.xiguaji.com/images/dsp/no-result.png" mode="widthFix" alt=""></div>
+                <div class="text">抱歉，暂无数据</div>
+              </div>
+            </div>
           </div>
           
           <div class="location-section" v-if="fansCurrentTab === 1">
+            <div class="location-head">
+              <div class="switch-time">
+                <ul>
+                  <li :class="{curent: currentType == 0}" @click="filter({time: 1}, 0)">省份</li>
+                  <li :class="{curent: currentType == 1}" @click="filter({time: 2}, 1)">城市</li>
+                </ul>
+              </div>
+            </div>
             <table class="location-table">
               <thead>
                 <tr>
@@ -245,6 +259,7 @@
             </ul>
           </div>
 
+          <div class="btns-share">生成图片分享到朋友圈</div>
         </div>
         
         <VideoWidget />
@@ -269,6 +284,25 @@
 }
 
 .container {
+  .no-result{
+    .result{
+      margin-top: 15px;
+      text-align: center;
+      padding: 50px 0 ;
+      .img{
+        img{
+          width: 64px;
+          height: 56px;
+        }
+      }
+      .text{
+        color: #fff;
+        opacity: .6;
+        font-size: 14px;
+        margin-top: 15px;
+      }
+    }
+  }
   .update-time {
     background: #24252a;
     height: 25px;
@@ -447,6 +481,36 @@
           }
         }
       }
+      .location-head{
+        display: flex;
+        padding: 15px;
+        .switch-time{
+          flex: 1;
+          ul{ 
+            background:#32333c;
+            border-radius:16px;
+            width:108px;
+            height:23px;
+            font-size:11px;
+            color:#ffffff;
+            display: block;
+            padding:2px 3px;
+            margin: 0 auto;}
+          li{ text-align: center;
+            float: left;
+            width: 50%;
+            line-height: 23px;
+            }
+          .curent{
+            background:#24252a;
+            border-radius:32px;
+            width:52px;
+            line-height: 23px;
+            display: inline-block;
+            text-align:center;
+          }
+        }
+      }
       .gender-section {
         .gender-content {
           padding: 20px 10% 0;
@@ -525,7 +589,7 @@
         font-size: 18px;
         color: #ffffff;
         text-align: center;
-        margin-bottom: 8px;
+        margin: 30px 0;
       }
       .location-table {
         color: #949596;
@@ -654,6 +718,7 @@ function getLineOptions() {
     grid: {
       top: 20,
       left: 70,
+      bottom:40,
       containLabel: false,
     },
     xAxis: {
@@ -750,6 +815,7 @@ function getPieOptions() {
 export default {
   data() {
     return {
+      currentType: 0,
       fansCurrentTab: 0,
       chartCurrentTab: 0,
       echarts,
@@ -785,6 +851,10 @@ export default {
     },
     switchChartTab(i) {
       this.chartCurrentTab = i;
+    },
+    filter(param, tabIndex){
+      this.currentType = tabIndex;
+      this.$bus.$emit('filter', param);
     },
   },
 

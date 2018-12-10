@@ -30,7 +30,6 @@
       flex: 1;
       font-size: 12px;
       color:#ffffff;
-      padding: 8px 0;
       .title{font-size:16px; padding-bottom: 8px;}
       p{opacity:0.6; padding-bottom: 8px;}
     }
