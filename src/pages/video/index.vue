@@ -1,5 +1,12 @@
 <template>
   <div class="container">
+    <div class="mainNav">
+      <ul>
+        <li class="active"><span>热门视频</span></li>
+        <li><span>热门音乐</span></li>
+        <li><span>热门话题</span></li>
+      </ul>
+    </div>
     <div class="navigation">
       <ul class="plist" :class="{showAll: showAllCategories}">
         <li class="item" :class="{active: currentCategory === null}" @click="switchCategory(null)">全部</li>
@@ -25,17 +32,39 @@
     left: 50%;
     transform: translate(-50%, 0)
   }
+  .mainNav{
+    height: 47px;
+    background: #161617;
+    ul{
+      padding: 0 20px;
+      display: flex;
+      text-align: center;
+      li{
+        flex: 1;
+        color: #A1A2A2;
+        font-size: 14px;
+        line-height: 44px;
+        display: inline-block;
+        &:first-child{ text-align: left;}
+        &:last-child{ text-align: right;}
+        span{
+          padding: 14px 15px;
+        } 
+        &:hover span,&.active span{ color: #FACD13; border-bottom: 3px solid #FACD13; box-sizing: border-box;}
+      }
+    }
+  }
   .navigation{
     background:#1d1e20;
-    padding: 15px;
+    padding: 12px;
     font-size: 14px;
     .plist{
       .item{
         text-align: center;
         vertical-align: middle;
         width: 14.28%;
-        height: 30px;
-        line-height: 30px;
+        height: 20px;
+        line-height: 20px;
         display: inline-block;
         color:#a1a2a2;
         &.active{
@@ -96,7 +125,7 @@ export default {
       showLoading: true,
       currentCategory: null,
       showAllCategories: false,
-      maxCategoriesNum: 6,
+      maxCategoriesNum: 5,
       filters: {
         type: '', //分类
         time: 1, //1: 24小时 2:7天
@@ -153,7 +182,7 @@ export default {
 
   created() {
     if(SYSTEM.WIN_WIDTH < 360){
-      this.maxCategoriesNum = 10;
+      this.maxCategoriesNum = 4;
     }
 
     this.$bus.$on('filter', param => {
