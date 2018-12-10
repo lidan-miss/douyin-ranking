@@ -96,7 +96,7 @@ export default {
       showLoading: true,
       currentCategory: null,
       showAllCategories: false,
-      maxCategoriesNum: 12,
+      maxCategoriesNum: 6,
       filters: {
         type: '', //分类
         time: 1, //1: 24小时 2:7天
