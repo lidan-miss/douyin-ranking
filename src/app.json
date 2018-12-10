@@ -31,21 +31,21 @@
       },
       {
         "pagePath": "pages/video/main",
-        "text": "热门视频",
-        "iconPath": "/static/img/video.png",
-        "selectedIconPath": "/static/img/video-active.png"
-      },
-      {
-        "pagePath": "pages/music/main",
-        "text": "热门音乐",
-        "iconPath": "/static/img/music.png",
-        "selectedIconPath": "/static/img/music-active.png"
+        "text": "热门",
+        "iconPath": "/static/img/hot.png",
+        "selectedIconPath": "/static/img/hot-active.png"
       },
       {
         "pagePath": "pages/rank/main",
-        "text": "播主排行",
+        "text": "排行榜",
         "iconPath": "/static/img/rank.png",
         "selectedIconPath": "/static/img/rank-active.png"
+      },
+      {
+        "pagePath": "pages/music/main",
+        "text": "收藏",
+        "iconPath": "/static/img/collection.png",
+        "selectedIconPath": "/static/img/collection-active.png"
       }
     ]
   }
