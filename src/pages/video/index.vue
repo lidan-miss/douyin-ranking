@@ -1,24 +1,34 @@
 <template>
   <div class="container">
-    <div class="mainNav">
+    <div class="tabNav">
       <ul>
-        <li class="active"><span>热门视频</span></li>
-        <li><span>热门音乐</span></li>
-        <li><span>热门话题</span></li>
+        <li :class="{active: currentTab === 0}" @click="switchTab(0)"><span>热门视频</span></li>
+        <li :class="{active: currentTab === 1}" @click="switchTab(1)"><span>热门音乐</span></li>
+        <li :class="{active: currentTab === 2}" @click="switchTab(2)"><span>热门话题</span></li>
       </ul>
     </div>
-    <div class="navigation">
-      <ul class="plist" :class="{showAll: showAllCategories}">
-        <li class="item" :class="{active: currentCategory === null}" @click="switchCategory(null)">全部</li>
-        <li class="item" :class="{active: currentCategory === item.id, hidden: index >= maxCategoriesNum }" v-for="(item, index) in videoCategories" :key="index" @click="switchCategory(item.id)">{{item.name}}</li>
-        <li class="item more" @click="showMoreCategories"></li>
-      </ul>
+
+    <div v-show="currentTab === 0">
+      <div class="navigation">
+        <ul class="plist" :class="{showAll: showAllCategories}">
+          <li class="item" :class="{active: currentCategory === null}" @click="switchCategory(null)">全部</li>
+          <li class="item" :class="{active: currentCategory === item.id, hidden: index >= maxCategoriesNum }" v-for="(item, index) in videoCategories" :key="index" @click="switchCategory(item.id)">{{item.name}}</li>
+          <li class="item more" @click="showMoreCategories"></li>
+        </ul>
+      </div>
+      <div class="content">
+        <i-spin size="large" i-class="loading" v-if="showLoading"></i-spin>
+        <VideoList :listData="videoList" :total="total" />
+        <i-load-more :tip="loadMoreText" :loading="!isEnd" v-if="showLoadMore" />
+      </div>
     </div>
-    <div class="content">
-      <i-spin size="large" i-class="loading" v-if="showLoading"></i-spin>
-      <VideoList :listData="videoList" :total="total" />
-      <i-load-more :tip="loadMoreText" :loading="!isEnd" v-if="showLoadMore" />
+    <div v-show="currentTab === 1">
+      232
     </div>
+    <div v-show="currentTab === 2">
+      25235xxx
+    </div>
+
   </div>
 </template>
 
@@ -32,7 +42,7 @@
     left: 50%;
     transform: translate(-50%, 0)
   }
-  .mainNav{
+  .tabNav{
     height: 47px;
     background: #161617;
     ul{
@@ -50,7 +60,7 @@
         span{
           padding: 14px 15px;
         } 
-        &:hover span,&.active span{ color: #FACD13; border-bottom: 3px solid #FACD13; box-sizing: border-box;}
+        &.active span{ color: #FACD13; border-bottom: 3px solid #FACD13; box-sizing: border-box;}
       }
     }
   }
@@ -115,6 +125,7 @@ const { services } = config;
 export default {
   data() {
     return {
+      currentTab: 0,
       videoList: [],
       page: 1,
       totalPage: 1,
@@ -145,6 +156,9 @@ export default {
   },
 
   methods: {
+    switchTab(i){
+      this.currentTab = i
+    },
     switchCategory(id){
       this.currentCategory = id;
       this.resetList({type: id})

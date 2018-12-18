@@ -1,9 +1,9 @@
 <template>
     <div class="music-list">
-      <div class="list-head">
-        <div class="title"><div class="name">音乐</div>64334条</div>
+      <!--<div class="list-head">
+        <div class="title"><div class="name"></div>64334条</div>
         <div class="time">数据更新时间：2018/04/06 13:36</div>
-      </div>
+      </div>-->
       <Item />
     </div>
 </template>

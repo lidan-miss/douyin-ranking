@@ -9,9 +9,7 @@
 <style lang="scss">
 @import '@/common/scss/style.scss';
 
-.container {
 
-}
 </style>
 
 <script>

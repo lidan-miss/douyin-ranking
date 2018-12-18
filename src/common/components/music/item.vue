@@ -1,12 +1,12 @@
 <template>
-    <div class="item" @click="viewDetail(1)">
-      <div class="img"><img src="/static/img/6.png" alt="" mode="widthFix"></div>
-      <div class="text">
-        <div class="title">大镜子的原声</div>
-        <p class="">时长：10秒</p>
-        <p class="">830人参与</p>
-      </div>
+  <div class="item" @click="viewDetail(1)">
+    <div class="img"><img src="/static/img/6.png" alt="" mode="widthFix"></div>
+    <div class="text">
+      <div class="title">大镜子的原声</div>
+      <p class="">时长：10秒</p>
+      <p class="">830人参与</p>
     </div>
+  </div>
 </template>
 
 <style lang="scss">

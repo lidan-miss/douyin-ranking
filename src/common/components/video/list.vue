@@ -1,13 +1,18 @@
 <template>
     <div class="video-list">
         <div class="head">
-            <div class="title">视频 <span class="title-number">{{total}}条</span></div>
-            <div class="switch-time">
+            <div class="title"><span class="title-number">{{total}}条</span></div>
+            <!--<div class="switch-time">
               <ul>
                 <li :class="{curent: currentType == 0}" @click="filter({time: 1}, 0)">24小时</li>
                 <li :class="{curent: currentType == 1}" @click="filter({time: 2}, 1)">近7天</li>
               </ul>
-            </div>
+            </div>-->
+            <div class="sort sort-time" :class="{active: showSortTime === true}" @click="toggleSortTime">24小时</div>
+            <ul v-if="showSortTime" class="sort-popup sort-time-popup">
+              <li class="active">24小时</li>
+              <li>7天</li>
+            </ul>
             <div class="sort" :class="{active: showSort === true}" @click="toggleSort">综合排序</div>
             <ul v-if="showSort" class="sort-popup">
               <li class="active">综合排序</li>
@@ -25,8 +30,8 @@
     background: #24252a;
     padding:0 15px;
     .head{ 
-        height: 27px;
-        padding: 11px 0;
+        height: 15px;
+        padding: 12px 0;
         border-bottom: 1px solid #32333c;
         color: #fff;
         font-size:12px;
@@ -68,12 +73,14 @@
           }
         }
         .sort{
-          width:80px;
+          width:60px;
+          margin:0 0 0 10px;
           position: relative;
-          line-height: 27px;
+          line-height: 15px;
           text-align: right;
           padding-right: 20px;
           box-sizing: content-box;
+          border-left: 1px solid #32333c;
           &.active{
             &::after{
               transform: rotate(180deg)
@@ -83,7 +90,7 @@
             display: block;
             content: ' ';
             position: absolute;
-            top: 11px;
+            top: 5px;
             right:0;
             background: url(../../assets/img/arrow-down.png) center right no-repeat;
             background-size: 11px 6px;
@@ -132,6 +139,14 @@
             border-right:solid 6px transparent;
           }
         }
+        .sort-time{
+         border-left:none;
+        }
+        .sort-time-popup{
+          top: 85rpx;
+          right: 160rpx;
+          width: 100px;
+        }
     }
 }
 </style>
@@ -142,7 +157,8 @@ export default {
   data(){
     return {
       currentType: 0,
-      showSort: false
+      showSort: false,
+      showSortTime: false
     }
   },
   props: {
@@ -163,7 +179,17 @@ export default {
     },
     toggleSort(){
       this.showSort = !this.showSort;
+      if(this.showSort){
+        this.showSortTime = false
+      }
+    },
+    toggleSortTime(){
+      this.showSortTime = !this.showSortTime;
+      if(this.showSortTime){
+        this.showSort = false
+      }
     }
+    
   }
 };
 </script>

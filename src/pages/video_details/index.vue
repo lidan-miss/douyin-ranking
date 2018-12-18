@@ -6,6 +6,7 @@
           <img src="/static/img/5.png" mode="widthFix" alt="">
         </div>
         <div class="text">
+          <div class="btns">取消收藏</div>
           <div class="text-index">91.7</div>
           <div class="text-title">记住：你是公主殿下、你要是哭了。他们都该死…</div>
           <ul class="text-info">
@@ -136,6 +137,30 @@
         flex: 1;
         font-size:12px;
         color:#999999;
+        position: relative;
+        .btns{
+          position: absolute;
+          right: 0;
+          top: 0;
+          padding:0 5px;
+          height:24px;
+          line-height: 24px;
+          background:#FACD13;
+          border-radius:4px;
+          font-size: 12px;
+          color:#ffffff;
+          &::before{
+            background: url(http://resource.xiguaji.com/images/dsp/stars.png) no-repeat center center;
+            background-size: 24rpx 24rpx;
+            width: 24rpx;
+            height: 24rpx;
+            content: "";
+            display: inline-block;
+            margin-right: 4rpx;
+            vertical-align: middle;
+            margin-top: -3px;
+          }
+          }
         .text-index{
           font-size:24px;
           color:#facd13;

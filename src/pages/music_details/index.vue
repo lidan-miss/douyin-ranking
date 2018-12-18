@@ -6,6 +6,7 @@
         <div class="item">
           <div class="img"><img src="/static/img/6.png" alt="" mode="widthFix"></div>
           <div class="text">
+            <div class="btns">取消收藏</div>
             <div class="title">大镜子的原声</div>
             <p class="">时长：10秒</p>
             <p class="">830人参与</p>
@@ -70,6 +71,30 @@
           font-size: 12px;
           color:#ffffff;
           padding: 8px 0;
+          position: relative;
+          .btns{
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding:0 5px;
+            height:24px;
+            line-height: 24px;
+            background:#FACD13;
+            border-radius:4px;
+            font-size: 12px;
+            color:#ffffff;
+            &::before{
+              background: url(http://resource.xiguaji.com/images/dsp/stars.png) no-repeat center center;
+              background-size: 24rpx 24rpx;
+              width: 24rpx;
+              height: 24rpx;
+              content: "";
+              display: inline-block;
+              margin-right: 4rpx;
+              vertical-align: middle;
+              margin-top: -3px;
+            }
+            }
           .title{font-size:16px; padding-bottom: 8px;}
           p{opacity:0.6; padding-bottom: 8px;}
         }

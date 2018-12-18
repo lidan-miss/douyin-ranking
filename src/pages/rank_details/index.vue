@@ -9,7 +9,7 @@
           <div class="rank">第391名</div>
         </div>
         <div class="head-r">
-          <div class="title">大静子<span class="tag">网红美女</span></div>
+          <div class="title">大静子<span class="tag">网红美女</span><div class="btns">收藏</div></div>
           <dl class="a-info">
             <dd>抖音ID：143552456</dd>
             <dd>性别：女</dd>
@@ -344,11 +344,35 @@
       }
       .head-r {
         flex: 1;
-        padding: 8px 25px 0 25px;
+        padding: 8px 15px 0 25px;
         .title {
           font-size: 16px;
           color: #ffffff;
           margin-bottom: 10px;
+          position: relative;
+          .btns{
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding:0 5px;
+            height:24px;
+            line-height: 24px;
+            background:#FACD13;
+            border-radius:4px;
+            font-size: 12px;
+            color:#ffffff;
+            &::before{
+              background: url(http://resource.xiguaji.com/images/dsp/stars.png) no-repeat center center;
+              background-size: 24rpx 24rpx;
+              width: 24rpx;
+              height: 24rpx;
+              content: "";
+              display: inline-block;
+              margin-right: 4rpx;
+              vertical-align: middle;
+              margin-top: -3px;
+            }
+            }
           .tag {
             border: 1px solid #facd13;
             border-radius: 2px;

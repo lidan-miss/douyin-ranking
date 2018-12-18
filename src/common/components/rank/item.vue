@@ -3,7 +3,8 @@
      <div class="index index1">01</div>
      <div class="avatar"><img src="/static/img/4.png" alt="" mode="widthFix"></div>
      <div class="name">❤️会说话的刘二豆❤️</div>
-     <div class="rate">91.7</div>
+     <!--<div class="rate">91.7</div>-->
+     <div class="drop">- 91.7</div>
   </div>
 </template>
 
@@ -57,7 +58,14 @@
         vertical-align:baseline;
         margin-right: 5px;
       }
-    }         
+    }
+    .drop{
+    width:80px;
+    font-size: 16px;
+    color:#facd13;
+    font-weight: bold;
+    text-align: right;
+    }        
   }
 }
 </style>

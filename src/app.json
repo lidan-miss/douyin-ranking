@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/music_details/main",
     "pages/index/main",
     "pages/rank_details/main",
     "pages/video_details/main",
@@ -8,8 +9,10 @@
     "pages/video/main",
     "pages/search/main",
     "pages/video_play/main",
-    "pages/music_details/main"
     
+    "pages/topic_hot/main",
+    "pages/topic_details/main" 
+     
   ],
   "window": {
     "backgroundTextStyle": "dark",
